@@ -1050,6 +1050,50 @@ st.markdown("""
     opacity: 1;
 }
 
+/* Fuerza el tema claro en todos los niveles de los campos Streamlit/BaseWeb. */
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"],
+[data-testid="stMain"] [data-testid="stNumberInput"],
+[data-testid="stMain"] [data-testid="stTextInput"] {
+    color-scheme: light !important;
+}
+
+[data-testid="stMain"] [data-baseweb="input"],
+[data-testid="stMain"] [data-baseweb="base-input"],
+[data-testid="stMain"] [data-testid="stNumberInput"] [data-baseweb="input"],
+[data-testid="stMain"] [data-testid="stTextInput"] [data-baseweb="input"],
+[data-testid="stMain"] [data-baseweb="input"] > div,
+[data-testid="stMain"] [data-baseweb="base-input"] > input {
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    color: #182235 !important;
+    border-color: #CDD8EA !important;
+    color-scheme: light !important;
+}
+
+[data-testid="stMain"] [data-testid="stNumberInput"] input,
+[data-testid="stMain"] [data-testid="stTextInput"] input,
+[data-testid="stMain"] [data-baseweb="input"] input,
+[data-testid="stMain"] input[type="number"],
+[data-testid="stMain"] input[type="text"],
+[data-testid="stMain"] textarea {
+    appearance: none !important;
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    color: #182235 !important;
+    -webkit-text-fill-color: #182235 !important;
+    caret-color: #3157D5 !important;
+    color-scheme: light !important;
+    opacity: 1 !important;
+}
+
+[data-testid="stMain"] input::placeholder,
+[data-testid="stMain"] textarea::placeholder {
+    color: #63748B !important;
+    -webkit-text-fill-color: #63748B !important;
+    opacity: 1 !important;
+}
+
 [data-testid="stMain"] :is([data-testid="stNumberInputStepUp"], [data-testid="stNumberInputStepDown"]) {
     border-color: #DCE5F0;
     background: #F2F6FD;
