@@ -1449,6 +1449,35 @@ def abrir_registro():
     st.session_state.sidebar_nav = "Registrar pedido"
 
 
+def crear_lienzo_grafica(orientacion="y"):
+    """Prepara una figura limpia y consistente para las graficas del sistema."""
+    figura, eje = plt.subplots(figsize=(6.2, 3.5), dpi=120)
+
+    # Mantiene las graficas legibles sobre el tema claro de LOGI-TRACK.
+    figura.patch.set_facecolor("#FFFFFF")
+    eje.set_facecolor("#FFFFFF")
+
+    for lado in ("top", "right"):
+        eje.spines[lado].set_visible(False)
+    for lado in ("left", "bottom"):
+        eje.spines[lado].set_color("#E2E8F0")
+        eje.spines[lado].set_linewidth(0.9)
+
+    eje.tick_params(axis="x", colors="#53627B", labelsize=9, length=0, pad=8)
+    eje.tick_params(axis="y", colors="#53627B", labelsize=9, length=0, pad=8)
+
+    if orientacion == "y":
+        eje.grid(axis="y", color="#E7EDF5", linestyle="--", linewidth=0.8)
+    elif orientacion == "x":
+        eje.grid(axis="x", color="#E7EDF5", linestyle="--", linewidth=0.8)
+    else:
+        raise ValueError("La orientacion debe ser 'x' o 'y'.")
+
+    eje.set_axisbelow(True)
+    figura.tight_layout(pad=1.5)
+    return figura, eje
+
+
 def grafica_estados(indicadores):
     from matplotlib.ticker import MaxNLocator
 
